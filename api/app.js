@@ -7,8 +7,16 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
+const mongoose = require('mongoose');
 
 var app = express();
+
+mongoose.connect('mongodb+srv://lucas:lucas@cluster0-bqizz.mongodb.net/test?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
