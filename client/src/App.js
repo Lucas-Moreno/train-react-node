@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
 
-export default class App extends React.Component {
+class App extends Component {
   state = {
     apiResponse: []
   }
+
 
   componentDidMount() {
     axios.get(`http://localhost:9000/api`)
@@ -17,9 +19,17 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <ul>
-        {this.state.apiResponse}
-      </ul>
+      <div>
+        <ul>
+          {this.state.apiResponse}
+        </ul>
+        <button>
+          <Link to="/home">Go Home</Link>
+        </button>
+      </div>
     )
   }
+  
 }
+export default App
+
