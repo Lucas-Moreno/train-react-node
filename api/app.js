@@ -17,7 +17,6 @@ mongoose.connect('mongodb+srv://lucas:lucas@cluster0-bqizz.mongodb.net/test?retr
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -48,5 +47,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+/* */
+
+
 
 module.exports = app;
