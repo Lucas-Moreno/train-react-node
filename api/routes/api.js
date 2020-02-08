@@ -5,10 +5,13 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.json());
 
 router.post('/', (req, res, next) => {
-    console.log(req.body);
-    res.status(201).json({
-      message: 'Objet créé !'
+    delete req.body._id; /* supprimé l'id envoyé par le front-end */
+    const thing = new Thing({
+      ...req.body /* L'opérateur spread ... est utilisé pour faire une copie de tous les éléments de req.body (éléments du schéma)*/
     });
+    thing.save() /* méthode save() qui enregistre simplement Thing dans la base de données. (Promise) */
+      .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
+      .catch(error => res.status(400).json({ error }));
 });
 
 router.use('/', (req, res, next) => {

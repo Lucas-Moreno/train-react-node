@@ -4,7 +4,7 @@ import axios from 'axios';
 class PostForm extends Component {
 
     state = {
-        
+
     }
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value});
