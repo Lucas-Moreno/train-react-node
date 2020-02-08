@@ -8,8 +8,9 @@ class App extends Component {
 
     return (
       <div>
+        <h1>Page d'accueil</h1>
         <button className="button">
-          <Link to="/home">Go Home</Link>
+          <Link to="/home">Allez à l'Home</Link>
         </button>
       </div>
     )

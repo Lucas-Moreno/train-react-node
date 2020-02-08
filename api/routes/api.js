@@ -1,7 +1,17 @@
 var express = require("express");
 var router = express.Router();
+var bodyParser = require('body-parser');
 
-router.get('/', (req, res, next) => {
+router.use(bodyParser.json());
+
+router.post('/', (req, res, next) => {
+    console.log(req.body);
+    res.status(201).json({
+      message: 'Objet créé !'
+    });
+});
+
+router.use('/', (req, res, next) => {
     const stuff = [
       {
         _id: 'Objet 1',
